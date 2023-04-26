@@ -66,7 +66,7 @@ class MyUser(AbstractBaseUser):
 ```
 In this example, the `has_module_perms` method checks if the `add_label` parameter is equal to `"myapp"`, and if so, it checks if the user is a staff member (i.e., `self.is_staff` is `True`). If the user is a staff member, it returns `True`, indicating that the user has permissions to access the myapp module. If the `add_label` parameter is not equal to `"myapp"`, or if the user is not a staff member, it returns `False`.
 
-### media files
+## media files
 - Create a directory to store the media files in your project's root directory
 - Make sure to add this directory to your project's .gitignore file so that it is not committed to version control
 - Update settings.py: In your project's settings.py file, add the following code:
