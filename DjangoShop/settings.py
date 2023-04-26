@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'category',
+    'myusers',
 ]
 
 MIDDLEWARE = [
@@ -76,6 +77,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'DjangoShop.wsgi.application'
 
+AUTH_USER_MODEL = 'myusers.MyUser'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
