@@ -65,3 +65,27 @@ class MyUser(AbstractBaseUser):
 
 ```
 In this example, the `has_module_perms` method checks if the `add_label` parameter is equal to `"myapp"`, and if so, it checks if the user is a staff member (i.e., `self.is_staff` is `True`). If the user is a staff member, it returns `True`, indicating that the user has permissions to access the myapp module. If the `add_label` parameter is not equal to `"myapp"`, or if the user is not a staff member, it returns `False`.
+
+### media files
+- Create a directory to store the media files in your project's root directory
+- Make sure to add this directory to your project's .gitignore file so that it is not committed to version control
+- Update settings.py: In your project's settings.py file, add the following code:
+```
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+```
+- Add media URL to project URLs: In your project's urls.py file, add the following code:
+```
+from django.conf import settings
+from django.conf.urls.static import static
+
+urlpatterns = [
+    # ... your other URL patterns here ...
+]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+```
+
+With these steps, your Django project should be configured to handle media files. Note that during deployment, you will need to configure your web server to serve media files separately from static files, as media files are usually user-generated content and cannot be cached.
